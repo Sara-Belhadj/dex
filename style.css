@@ -1,0 +1,56 @@
+body {
+  font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: #1B2140;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* HEADER */
+header img {
+    height: 40px;
+    width: 40px;
+}
+
+.logo {
+    display: flex;
+    gap : 20px
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.list button {
+    height: 35px;
+    width: 70px;
+    margin-left: auto;
+    border-radius: 20px;
+    background-color: #1B2140;
+    color:#ffffff;
+    border: none;
+}
+
+/* MAIN */
+main {
+    background-color: rgba(255, 255, 255, 0.4);
+    margin: 30px;
+    border-radius: 25px;
+    padding: 30px;
+}
+
+#course-list {
+    background-color: rgba(255, 255, 255, 0.4);;
+    padding-right: 30px;
+    font-size: 15px;
+    padding: 0px 20px 0px 20px;
+    height: 45px;
+    width: 400px;
+    border-radius: 20px;
+}
