@@ -1,13 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+}
+
 body {
   font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
   color: #1B2140;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
   background-image: url('images/background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  overflow: hidden;
+  padding: 20px;
+  margin: 0;
+}
+
+
+/* GLASS CONTAINER */
+.glass-container {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
 }
 
 /* HEADER */
@@ -17,20 +36,36 @@ header img {
 }
 
 .logo {
+    align-items: flex-start;
     display: flex;
     gap : 20px
+}
+
+.logo h1 {
+    margin: 0px;
+}
+
+.titre {
+    margin-top: 50px;
+    font-size: 50px;
 }
 
 .list {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: flex-end;
+    padding-right: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 500px;
+    height: 55px;
+    border-radius: 30px;
+    margin-left: auto;
+    gap: 20px;
 }
 
 .list button {
-    height: 35px;
-    width: 70px;
-    margin-left: auto;
+    height: 40px;
+    width: 90px;
     border-radius: 20px;
     background-color: #1B2140;
     color:#ffffff;
@@ -38,19 +73,16 @@ header img {
 }
 
 /* MAIN */
-main {
-    background-color: rgba(255, 255, 255, 0.4);
-    margin: 30px;
-    border-radius: 25px;
-    padding: 30px;
+#course-list {
+    font-size: 15px;
+    border-radius: 30px;
+    font-weight: 600;
+    height: 40px;
+    padding-left: 10px;
+    border: none;
+    color: #1B2140;
 }
 
-#course-list {
-    background-color: rgba(255, 255, 255, 0.4);;
-    padding-right: 30px;
-    font-size: 15px;
-    padding: 0px 20px 0px 20px;
-    height: 45px;
-    width: 400px;
-    border-radius: 20px;
+select {
+    outline: none;
 }
