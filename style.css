@@ -17,16 +17,25 @@ body {
   background-repeat: no-repeat;
   padding: 20px;
   margin: 0;
+  overflow: auto;
 }
 
 
 /* GLASS CONTAINER */
 .glass-container {
+    display: flex;
+    flex-direction: column;
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 20px;
     width: 100%;
     height: 100%;
     padding: 20px;
+}
+
+.header {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 /* HEADER */
@@ -46,7 +55,8 @@ header img {
 }
 
 .titre {
-    margin-top: 50px;
+    margin-top: 40px;
+    margin-bottom: 0px;
     font-size: 50px;
 }
 
@@ -55,17 +65,20 @@ header img {
     align-items: center;
     justify-content: flex-end;
     padding-right: 20px;
-    background-color: rgba(255, 255, 255, 0.4);
-    width: 500px;
+    padding-left: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(253, 253, 253, 0.5);
     height: 55px;
+    width: 400PX;
     border-radius: 30px;
     margin-left: auto;
+    margin-right: 10px;
     gap: 20px;
 }
 
 .list button {
     height: 40px;
-    width: 90px;
+    width: 100px;
     border-radius: 20px;
     background-color: #1B2140;
     color:#ffffff;
@@ -77,12 +90,29 @@ header img {
     font-size: 15px;
     border-radius: 30px;
     font-weight: 600;
+    width: 100%;
     height: 40px;
     padding-left: 10px;
     border: none;
     color: #1B2140;
+    background-color: transparent;
 }
 
 select {
     outline: none;
+}
+
+.glass-container2 {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(253, 253, 253, 0.5);
+    border-radius: 20px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.desc-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

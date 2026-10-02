@@ -15,22 +15,24 @@
                     <img src= "images/icon.png" alt="Logo">
                     <h1>Dex</h1>
                 </div>
-                <h1 class="titre">Travaux ouverts</h1>
+            </header>
+
+            <h1 class="titre">Travaux ouverts</h1>
+            <div class="desc-list">
+                <p class="description">Choisis un travail et trouve le meilleur moment pour étudier ensemble.<p>
                 <div class="list">
                     <select name="course" id="course-list">
                         <option value="">Tous les cours</option>
-                        <option value="420-244-AH">Bases de données applicatives</option>
-                        <option value="420-245-AH">Programmation Web 1</option>
+                        <option value="420-244-AH">Bases de données applicatives</option>                        <option value="420-245-AH">Programmation Web 1</option>
                         <option value="420-248-AH">Programmation Web 2</option>
                         <option value="420-253-AH">Projet de fin d’études</option>
                     </select>
 
                     <button>Filtrer</button>
                 </div>
-            </header>
+            </div>
+            <main class="glass-container2">
 
-
-            <main>
             </main>
 
 
