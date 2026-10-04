@@ -1,3 +1,25 @@
+<?php
+    require __DIR__ . '/includes/db.php';
+
+    $travailId = $_GET['travail'] ?? '';
+
+    $request = $pdo->prepare("
+        SELECT travaux.*, cours.titre AS cours_titre
+        FROM travaux
+        JOIN cours ON travaux.cours_id = cours.id
+        WHERE travaux.id = ?
+    ");
+
+    $request->execute([$travailId]);
+
+    $travail = $request->fetch();
+
+    if (!$travail) {
+        header('Location: index.php', true, 303);
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
