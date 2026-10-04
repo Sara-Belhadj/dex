@@ -17,6 +17,15 @@
         header('Location: index.php', true, 303);
         exit;
     }
+
+    $requestCreneaux = $pdo->prepare("
+        SELECT *
+        FROM creneaux
+        WHERE travail_id = ?
+        ORDER BY debut
+    ");
+    $requestCreneaux->execute([$travailId]);
+    $creneaux = $requestCreneaux->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,6 +68,16 @@
                 <p>Type : <?= htmlspecialchars($travail['type']) ?></p>
                 <p>Disponible : <?= htmlspecialchars($travail['disponible']) ?></p>
                 <p>Remise : <?= htmlspecialchars($travail['remise']) ?></p>
+            
+                <h2>Créneaux disponibles</h2>
+
+                <?php foreach ($creneaux as $creneau): ?>
+                    <div class="creneau">
+                        <p>Début : <?= htmlspecialchars($creneau['debut']) ?></p>
+                        <p>Fin : <?= htmlspecialchars($creneau['fin']) ?></p>
+                    </div>
+                <?php endforeach; ?>
+                
             </main>
         </div>
     </div>
