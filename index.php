@@ -12,16 +12,30 @@
 
     <main>
         <?php
-            $request = $pdo->query("
-                SELECT travaux.*, cours.titre AS cours_titre
-                FROM travaux
-                JOIN cours ON travaux.cours_id = cours.id
-                WHERE travaux.ouvert = 1
-                ORDER BY cours.titre
-            ");
+            $cours = $_GET['cours'] ?? '';
 
-            $travaux = $request->fetchAll();
-        ?>
+                if ($cours === '') {
+                    $request = $pdo->query("
+                        SELECT travaux.*, cours.titre AS cours_titre
+                        FROM travaux
+                        JOIN cours ON travaux.cours_id = cours.id
+                        WHERE travaux.ouvert = 1
+                        ORDER BY cours.titre
+                    ");
+                } else {
+                    $request = $pdo->prepare("
+                        SELECT travaux.*, cours.titre AS cours_titre
+                        FROM travaux
+                        JOIN cours ON travaux.cours_id = cours.id
+                        WHERE travaux.ouvert = 1
+                        AND travaux.cours_id = ?
+                        ORDER BY cours.titre
+                    ");
+
+                    $request->execute([$cours]);
+                }
+                $travaux = $request->fetchAll();
+            ?>
 
         // Liste des options
         <form method="GET" action="index.php">
