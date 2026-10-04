@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 </head>
 <body>
     <?php
         require __DIR__ . '/includes/db.php';
-        $titrePage = 'Travaux ouverts';
         require __DIR__ . '/includes/header.php';
     ?>
 
@@ -19,12 +17,19 @@
                 FROM travaux
                 JOIN cours ON travaux.cours_id = cours.id
                 WHERE travaux.ouvert = 1
+                ORDER BY cours.titre
             ");
 
             $travaux = $request->fetchAll();
         ?>
+        <?php $coursActuel = null; ?>
 
         <?php foreach ($travaux as $travail): ?>
+
+            <?php if ($coursActuel !== $travail['cours_titre']): ?>
+                <h2><?= htmlspecialchars($travail['cours_titre']) ?></h2>
+                <?php $coursActuel = $travail['cours_titre']; ?>
+            <?php endif; ?>
 
             <div class="travail">
                 <h2><?= htmlspecialchars($travail['titre']) ?></h2>
@@ -34,8 +39,11 @@
             </div>
         <?php endforeach; ?>
 
-        
+
         
     </main>
+    <?php 
+        require __DIR__ . '/includes/footer.php';
+    ?>
 </body>
-</html>
+</html> 
