@@ -37,18 +37,24 @@
                 $travaux = $request->fetchAll();
             ?>
 
-        // Liste des options
-        <form method="GET" action="index.php">
-            <select name="cours" id="course-list">
-                <option value="">Tous les cours</option>
-                <option value="420-244-AH">Bases de données applicatives</option>
-                <option value="420-245-AH">Programmation Web 1</option>
-                <option value="420-248-AH">Programmation Web 2</option>
-                <option value="420-253-AH">Projet de fin d’études</option>
-            </select>
+        <h1 class="titre">Travaux ouverts</h1>
+        <div class="desc-list">
+            <p class="description">
+                Choisis un travail et trouve le meilleur moment pour étudier ensemble.
+            </p>
+            // Liste des options
+            <form method="GET" action="index.php" class="list">
+                <select name="cours" id="course-list">
+                    <option value="">Tous les cours</option>
+                    <option value="420-244-AH">Bases de données applicatives</option>
+                    <option value="420-245-AH">Programmation Web 1</option>
+                    <option value="420-248-AH">Programmation Web 2</option>
+                    <option value="420-253-AH">Projet de fin d’études</option>
+                </select>
 
-            <button type="submit">Filtrer</button>
-        </form>
+                <button type="submit">Filtrer</button>
+            </form>
+        </div>
 
         <?php $coursActuel = null; ?>
 
