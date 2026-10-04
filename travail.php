@@ -32,7 +32,6 @@
                 </div>
             </div>
             <main class="glass-container2">
-
             </main>
 
 
