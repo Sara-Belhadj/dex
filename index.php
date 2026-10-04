@@ -22,6 +22,20 @@
 
             $travaux = $request->fetchAll();
         ?>
+
+        // Liste des options
+        <form method="GET" action="index.php">
+            <select name="cours" id="course-list">
+                <option value="">Tous les cours</option>
+                <option value="420-244-AH">Bases de données applicatives</option>
+                <option value="420-245-AH">Programmation Web 1</option>
+                <option value="420-248-AH">Programmation Web 2</option>
+                <option value="420-253-AH">Projet de fin d’études</option>
+            </select>
+
+            <button type="submit">Filtrer</button>
+        </form>
+
         <?php $coursActuel = null; ?>
 
         <?php foreach ($travaux as $travail): ?>
