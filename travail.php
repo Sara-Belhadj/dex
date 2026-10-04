@@ -75,9 +75,22 @@
                     <div class="creneau">
                         <p>Début : <?= htmlspecialchars($creneau['debut']) ?></p>
                         <p>Fin : <?= htmlspecialchars($creneau['fin']) ?></p>
+
+                        <form method="POST">
+                            <input type="hidden" name="creneau_id" value="<?= htmlspecialchars($creneau['id']) ?>">
+                            <label>
+                                Matricule
+                                <input type="text" name="matricule" required>
+                            </label>
+                            <label>
+                                Nom
+                                <input type="text" name="nom" required>
+                            </label>
+                            <button type="submit">Je suis disponible</button>
+                        </form>
                     </div>
                 <?php endforeach; ?>
-                
+
             </main>
         </div>
     </div>
