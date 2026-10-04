@@ -76,6 +76,7 @@
         )
     ");
 
+    // Les donnees que contient la table cours
     $cours = [
         ['420-244-AH', 'Bases de données applicatives'],
         ['420-245-AH', 'Programmation Web 1'],
@@ -83,6 +84,7 @@
         ['420-253-AH', 'Projet de fin d’études']
     ];
 
+    // Les donnees que contient la table travaux
     $travaux = [
         ['web1-tp1', '420-245-AH', 'TP1 — Catalogue de produits', 'Construire une première application PHP permettant d’afficher et de filtrer un catalogue.', 'individuel', '2026-09-01', '2026-09-20 23:59', 0],
         ['web2-tp1', '420-248-AH', 'TP1 — Gestion de réservations', 'Développer une application Web transactionnelle permettant d’enregistrer et de consulter des réservations.', 'equipe', '2026-09-21', '2026-10-18 23:59', 1],
@@ -91,6 +93,7 @@
         ['pfe-prototype', '420-253-AH', 'Prototype fonctionnel', 'Produire une première version fonctionnelle du projet et préparer une démonstration à l’équipe enseignante.', 'equipe', '2026-09-15', '2026-10-09 23:59', 1]
     ];
 
+    // Les donnees que contient la table creneaux
     $creneaux = [
         ['web1-tp1', 'web1-tp1-01', '2026-09-15 18:00', '2026-09-15 19:30'],
         ['web1-tp1', 'web1-tp1-02', '2026-09-16 12:00', '2026-09-16 13:30'],
@@ -109,4 +112,37 @@
         ['pfe-prototype', 'int-s1-03', '2026-10-01 18:00', '2026-10-01 20:00']
     ];
 
+    // Ici on insert les donnees id et titre dans la tables cours. Ignore c'est ne pas inserer 
+    $request = $pdo->prepare("
+        INSERT IGNORE INTO cours (id, titre) VALUES (?, ?)
+    ");
+
+    foreach($cours as $ligne) {
+        $request->exec($ligne);
+    }
+
+    // Inserer dans la table travaux
+    $request = $pdo->prepare("
+        INSERT IGNORE INTO travaux (id, cours_id, titre, description, type, disponible, remise, ouvert) VALUES (?, ?, ?, ?, ?, ?, ?, ?)    
+    ");
+
+    foreach( $travaux as $ligne) {
+        $request->exec($ligne);
+    }
+
+    //Inserer dans la table creneaux 
+    $request = $pdo->prepare("
+        INSERT IGNORE INTO creneaux (id, travail_id, debut, fin) VALUES (?, ?, ?, ?)
+    ");
+
+    foreach($creneaux as $ligne) {
+        $request->exec($ligne);
+    }
+
+    //Inserer dans la table disponibilites
+    $request = $pdo->prepare("
+        INSERT IGNORE INTO disponibilites (id, travail_id, creneau_id, matricule, nom) VALUES (?, ?, ?, ?, ?)
+    ");
+
+    foreach($disponibilites)
 ?>
