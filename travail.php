@@ -1,6 +1,6 @@
+<!-- Je comprends pas cette partie -->
 <?php
     require __DIR__ . '/includes/db.php';
-
     $travailId = $_GET['travail'] ?? '';
 
     $request = $pdo->prepare("
@@ -11,7 +11,6 @@
     ");
 
     $request->execute([$travailId]);
-
     $travail = $request->fetch();
 
     if (!$travail) {
@@ -19,7 +18,6 @@
         exit;
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,9 +53,13 @@
                 </div>
             </div>
             <main class="glass-container2">
+                <h1><?= htmlspecialchars($travail['titre']) ?></h1>
+                <p><?= htmlspecialchars($travail['cours_titre']) ?></p>
+                <p><?= htmlspecialchars($travail['description']) ?></p>
+                <p>Type : <?= htmlspecialchars($travail['type']) ?></p>
+                <p>Disponible : <?= htmlspecialchars($travail['disponible']) ?></p>
+                <p>Remise : <?= htmlspecialchars($travail['remise']) ?></p>
             </main>
-
-
         </div>
     </div>
 </body>
