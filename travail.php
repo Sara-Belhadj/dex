@@ -23,7 +23,8 @@
                 <div class="list">
                     <select name="course" id="course-list">
                         <option value="">Tous les cours</option>
-                        <option value="420-244-AH">Bases de données applicatives</option>                        <option value="420-245-AH">Programmation Web 1</option>
+                        <option value="420-244-AH">Bases de données applicatives</option>                        ¸
+                        <option value="420-245-AH">Programmation Web 1</option>
                         <option value="420-248-AH">Programmation Web 2</option>
                         <option value="420-253-AH">Projet de fin d’études</option>
                     </select>
