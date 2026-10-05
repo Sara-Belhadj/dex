@@ -73,9 +73,11 @@
     ?>
 
     <main class="glass-container2 detail-travail">
-                <h1><?= htmlspecialchars($travail['titre']) ?></h1>
-                <p><?= htmlspecialchars($travail['cours_titre']) ?></p>
-                <p><?= htmlspecialchars($travail['description']) ?></p>
+                <div class="entete-travail">
+                    <h1><?= htmlspecialchars($travail['titre']) ?></h1>
+                    <p class="cours-travail"><?= htmlspecialchars($travail['cours_titre']) ?></p>
+                    <p><?= htmlspecialchars($travail['description']) ?></p>
+                </div>
                 <div class="infos-travail">
                     <p>Type : <?= htmlspecialchars($travail['type']) ?></p>
                     <p>Disponible : <?= htmlspecialchars($travail['disponible']) ?></p>

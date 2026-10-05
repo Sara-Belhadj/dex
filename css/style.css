@@ -208,3 +208,12 @@ select {
     padding: 8px 15px;
     margin: 0;
 }
+
+.entete-travail h1 {
+    margin-bottom: 10px;
+}
+
+.cours-travail {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
