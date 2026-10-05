@@ -76,9 +76,11 @@
                 <h1><?= htmlspecialchars($travail['titre']) ?></h1>
                 <p><?= htmlspecialchars($travail['cours_titre']) ?></p>
                 <p><?= htmlspecialchars($travail['description']) ?></p>
-                <p>Type : <?= htmlspecialchars($travail['type']) ?></p>
-                <p>Disponible : <?= htmlspecialchars($travail['disponible']) ?></p>
-                <p>Remise : <?= htmlspecialchars($travail['remise']) ?></p>
+                <div class="infos-travail">
+                    <p>Type : <?= htmlspecialchars($travail['type']) ?></p>
+                    <p>Disponible : <?= htmlspecialchars($travail['disponible']) ?></p>
+                    <p>Remise : <?= htmlspecialchars($travail['remise']) ?></p>
+                </div>
             
                 <h2>Créneaux disponibles</h2>
 
