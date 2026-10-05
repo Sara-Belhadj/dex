@@ -12,9 +12,12 @@ $titre = $titrePage ?? 'Dex';
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="images/icon.png" alt="Logo">
-            <h1><a href="index.php">Dex</a></h1>
+    <div class="glass-container">
+        <div class="header">
+            <header>
+                <div class="logo">
+                    <img src="images/icon.png" alt="Logo">
+                    <h1><a href="index.php">Dex</a></h1>
+                </div>
+            </header>
         </div>
-    </header>
