@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require __DIR__ . '/includes/db.php';
 
     $travailId = $_GET['travail'] ?? '';
@@ -32,8 +33,8 @@
     $creneaux = $requestCreneaux->fetchAll();
 
     $erreur = '';
-    $matricule = '';
-    $nom = '';
+    $matricule = $_SESSION['matricule'] ?? '';
+    $nom = $_SESSION['nom'] ?? '';
     $creneauxChoisis = [];
 
     // verifier le formulaire
@@ -67,6 +68,8 @@
 
         // remplacer les anciennes disponibilites
         if ($erreur === '') {
+            $_SESSION['matricule'] = $matricule;
+            $_SESSION['nom'] = $nom;
             $delete = $pdo->prepare("
                 DELETE FROM disponibilites
                 WHERE travail_id = ?
