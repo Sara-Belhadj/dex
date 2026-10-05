@@ -56,7 +56,7 @@
     $disponibilites = $requestDisponibilites->fetchAll();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,22 +73,7 @@
                     <h1>Dex</h1>
                 </div>
             </header>
-
-            <h1 class="titre">Travaux ouverts</h1>
-            <div class="desc-list">
-                <p class="description">Choisis un travail et trouve le meilleur moment pour étudier ensemble.<p>
-                <div class="list">
-                    <select name="course" id="course-list">
-                        <option value="">Tous les cours</option>
-                        <option value="420-244-AH">Bases de données applicatives</option>                        ¸
-                        <option value="420-245-AH">Programmation Web 1</option>
-                        <option value="420-248-AH">Programmation Web 2</option>
-                        <option value="420-253-AH">Projet de fin d’études</option>
-                    </select>
-
-                    <button>Filtrer</button>
-                </div>
-            </div>
+        </div>
             <main class="glass-container2">
                 <h1><?= htmlspecialchars($travail['titre']) ?></h1>
                 <p><?= htmlspecialchars($travail['cours_titre']) ?></p>
@@ -132,7 +117,6 @@
                     </div>
                 <?php endforeach; ?>
             </main>
-        </div>
     </div>
 </body>
 </html>
