@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dex</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/icon.png">
 </head>
 <body>
-    <?php
-        require __DIR__ . '/includes/db.php';
-        require __DIR__ . '/includes/header.php';
-    ?>
+    <body>
+    <div class="glass-container">
 
-    <main>
+        <?php
+            require __DIR__ . '/includes/db.php';
+            require __DIR__ . '/includes/header.php';
+        ?>
+
+        <main>
         <?php
             $cours = $_GET['cours'] ?? '';
 
@@ -43,7 +49,7 @@
             <p class="description">
                 Choisis un travail et trouve le meilleur moment pour étudier ensemble.
             </p>
-            <!-- // Liste des options -->
+            <!-- Liste des options -->
             <form method="GET" action="index.php" class="list">
                 <select name="cours" id="course-list">
                     <option value="">Tous les cours</option>
@@ -75,10 +81,12 @@
                 </div>
             <?php endforeach; ?>
         </div>
+            </main>
 
-    </main>
-    <?php 
-        require __DIR__ . '/includes/footer.php';
-    ?>
+        <?php
+            require __DIR__ . '/includes/footer.php';
+        ?>
+
+    </div>
 </body>
-</html> 
+</html>

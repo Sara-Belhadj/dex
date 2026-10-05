@@ -55,14 +55,24 @@
     $requestDisponibilites->execute([$travailId]);
     $disponibilites = $requestDisponibilites->fetchAll();
 ?>
-<?php
-    $titrePage = $travail['titre'];
-    require __DIR__ . '/includes/header.php';
-?>
-
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dex</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/icon.png">
+</head>
+<body>
 <div class="glass-container">
-            <main class="glass-container2">
+
+    <?php
+        $titrePage = $travail['titre'];
+        require __DIR__ . '/includes/header.php';
+    ?>
+
+    <main class="glass-container2">
                 <h1><?= htmlspecialchars($travail['titre']) ?></h1>
                 <p><?= htmlspecialchars($travail['cours_titre']) ?></p>
                 <p><?= htmlspecialchars($travail['description']) ?></p>
@@ -104,9 +114,11 @@
                         </form>
                     </div>
                 <?php endforeach; ?>
-            </main>
-    </div>
+                </main>
 
     <?php require __DIR__ . '/includes/footer.php'; ?>
+
+</div>
+
 </body>
 </html>
