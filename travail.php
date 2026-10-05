@@ -1,4 +1,3 @@
-<!-- Je comprends pas cette partie -->
 <?php
     require __DIR__ . '/includes/db.php';
     $travailId = $_GET['travail'] ?? '';
@@ -46,6 +45,15 @@
     ");
     $requestCreneaux->execute([$travailId]);
     $creneaux = $requestCreneaux->fetchAll();
+
+    $requestDisponibilites = $pdo->prepare("
+        SELECT *
+        FROM disponibilites
+        WHERE travail_id = ?
+    ");
+
+    $requestDisponibilites->execute([$travailId]);
+    $disponibilites = $requestDisponibilites->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,12 +100,25 @@
                 <h2>Créneaux disponibles</h2>
 
                 <?php foreach ($creneaux as $creneau): ?>
+
                     <div class="creneau">
+
                         <p>Début : <?= htmlspecialchars($creneau['debut']) ?></p>
                         <p>Fin : <?= htmlspecialchars($creneau['fin']) ?></p>
 
+                        <?php foreach ($disponibilites as $disponibilite): ?>
+                            <?php if ($disponibilite['creneau_id'] === $creneau['id']): ?>
+                                <p>
+                                    <?= htmlspecialchars($disponibilite['matricule']) ?>
+                                    <?= htmlspecialchars($disponibilite['nom']) ?>
+                                </p>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                         <form method="POST">
-                            <input type="hidden" name="creneau_id" value="<?= htmlspecialchars($creneau['id']) ?>">
+                            <input
+                                type="hidden"
+                                name="creneau_id"
+                                value="<?= htmlspecialchars($creneau['id']) ?>">
                             <label>
                                 Matricule
                                 <input type="text" name="matricule" required>
@@ -110,7 +131,6 @@
                         </form>
                     </div>
                 <?php endforeach; ?>
-
             </main>
         </div>
     </div>
