@@ -92,7 +92,7 @@
 
                         <?php foreach ($disponibilites as $disponibilite): ?>
                             <?php if ($disponibilite['creneau_id'] === $creneau['id']): ?>
-                                <p>
+                                <p class="disponibilite">
                                     <?= htmlspecialchars($disponibilite['matricule']) ?>
                                     <?= htmlspecialchars($disponibilite['nom']) ?>
                                 </p>
