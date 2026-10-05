@@ -3,6 +3,26 @@
     require __DIR__ . '/includes/db.php';
     $travailId = $_GET['travail'] ?? '';
 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $creneauId = $_POST['creneau_id'];
+        $matricule = $_POST['matricule'];
+        $nom = $_POST['nom'];
+
+        $insert = $pdo->prepare("
+            INSERT INTO disponibilites (travail_id, creneau_id, matricule, nom) VALUES (?, ?, ?, ?)
+        ");
+
+        $insert->execute([
+            $travailId,
+            $creneauId,
+            $matricule,
+            $nom
+        ]);
+
+        header('Location: travail.php?travail=' . urlencode($travailId), true, 303);
+        exit;
+    }
+
     $request = $pdo->prepare("
         SELECT travaux.*, cours.titre AS cours_titre
         FROM travaux
