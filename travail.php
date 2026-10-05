@@ -72,7 +72,7 @@
         require __DIR__ . '/includes/header.php';
     ?>
 
-    <main class="glass-container2">
+    <main class="glass-container2 detail-travail">
                 <h1><?= htmlspecialchars($travail['titre']) ?></h1>
                 <p><?= htmlspecialchars($travail['cours_titre']) ?></p>
                 <p><?= htmlspecialchars($travail['description']) ?></p>
