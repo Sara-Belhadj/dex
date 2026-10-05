@@ -82,6 +82,7 @@
             
                 <h2>Créneaux disponibles</h2>
 
+                <div class="creneaux-liste">
                 <?php foreach ($creneaux as $creneau): ?>
 
                     <div class="creneau">
@@ -114,6 +115,7 @@
                         </form>
                     </div>
                 <?php endforeach; ?>
+            </div>
                 </main>
 
     <?php require __DIR__ . '/includes/footer.php'; ?>
