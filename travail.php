@@ -216,6 +216,9 @@
                         }
                     ?>
                     <div class="creneau <?= $nombreDisponibles === $maximumDisponibles && $maximumDisponibles > 0 ? 'meilleur' : '' ?>">
+                        <?php if ($nombreDisponibles === $maximumDisponibles && $maximumDisponibles > 0): ?>
+                            <p><strong>Meilleur créneau</strong></p>
+                        <?php endif; ?>
                         <p>
                             Début : <?= htmlspecialchars($creneau['debut']) ?>
                         </p>

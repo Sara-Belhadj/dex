@@ -20,27 +20,40 @@
         <?php
             $cours = $_GET['cours'] ?? '';
 
-                if ($cours === '') {
-                    $request = $pdo->query("
-                        SELECT travaux.*, cours.titre AS cours_titre
-                        FROM travaux
-                        JOIN cours ON travaux.cours_id = cours.id
-                        WHERE travaux.ouvert = 1
-                        ORDER BY cours.titre
-                    ");
-                } else {
-                    $request = $pdo->prepare("
-                        SELECT travaux.*, cours.titre AS cours_titre
-                        FROM travaux
-                        JOIN cours ON travaux.cours_id = cours.id
-                        WHERE travaux.ouvert = 1
-                        AND travaux.cours_id = ?
-                        ORDER BY cours.titre
-                    ");
+            $coursValides = [
+                '420-244-AH',
+                '420-245-AH',
+                '420-248-AH',
+                '420-253-AH'
+            ];
 
-                    $request->execute([$cours]);
-                }
-                $travaux = $request->fetchAll();
+            // verifier le cours choisi
+            if ($cours !== '' && !in_array($cours, $coursValides)) {
+                $cours = '';
+            }
+
+            if ($cours === '') {
+                $request = $pdo->query("
+                    SELECT travaux.*, cours.titre AS cours_titre
+                    FROM travaux
+                    JOIN cours ON travaux.cours_id = cours.id
+                    WHERE travaux.ouvert = 1
+                    ORDER BY cours.titre
+                ");
+            } else {
+                $request = $pdo->prepare("
+                    SELECT travaux.*, cours.titre AS cours_titre
+                    FROM travaux
+                    JOIN cours ON travaux.cours_id = cours.id
+                    WHERE travaux.ouvert = 1
+                    AND travaux.cours_id = ?
+                    ORDER BY cours.titre
+                ");
+
+                $request->execute([$cours]);
+            }
+
+            $travaux = $request->fetchAll();
             ?>
 
         <h1 class="titre">Travaux ouverts</h1>
